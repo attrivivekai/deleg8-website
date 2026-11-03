@@ -9,7 +9,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
-from app.content import PLANS, STEPS, TEAM_SIZES
+from app.content import FAQ, PLANS, STEPS, TEAM_SIZES
 from app.db import WaitlistSignup, get_session
 
 BASE_DIR = Path(__file__).parent
@@ -70,7 +70,7 @@ def how_it_works(request: Request):
 
 @app.get("/pricing", response_class=HTMLResponse)
 def pricing(request: Request):
-    return render(request, "pricing.html")
+    return render(request, "pricing.html", faq=FAQ)
 
 
 @app.post("/waitlist")
