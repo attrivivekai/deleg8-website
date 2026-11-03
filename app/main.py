@@ -109,6 +109,11 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/api/plans")
+def list_plans():
+    return [{"id": p["id"], "name": p["name"], "price": p["price"]} for p in PLANS]
+
+
 @app.post("/api/waitlist", status_code=201)
 def waitlist_api(data: SignupIn, session: Session = Depends(get_session)):
     signup = create_signup(session, data)
