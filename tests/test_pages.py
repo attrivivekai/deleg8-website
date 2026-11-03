@@ -72,3 +72,21 @@ def test_changelog_public_entries_newest_first(client):
     assert "28 Oct 2026" in html
     assert "Seed round" not in html
     assert "Company founded" not in html
+
+
+@pytest.mark.parametrize("path", ["/", "/how-it-works", "/pricing", "/thanks", "/changelog"])
+def test_changelog_linked_from_nav_and_footer(client, path):
+    html = client.get(path).text
+    assert html.count('href="/changelog"') >= 2
+    nav = html[html.index("<nav>") : html.index("</nav>")]
+    assert nav.index("Pricing") < nav.index("Changelog") < nav.index("Join waitlist")
+    footer = html[html.index('<footer class="footer">') :]
+    assert 'class="footer-links"' in footer
+    assert 'href="/changelog"' in footer
+    assert "&copy; 2026 deleg8 · AI employees, delegated." in footer
+
+
+def test_url_global_applies_base_path():
+    from app.main import templates
+
+    assert templates.env.globals["url"]("/changelog") == "/changelog"
