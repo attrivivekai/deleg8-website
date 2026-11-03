@@ -92,3 +92,24 @@ CHANGELOG = [
         "summary": "First five design partners onboarded.",
     },
 ]
+
+FAQ = [
+    (
+        "Does deleg8 write to my production database?",
+        "No. Database and warehouse access is read-only. "
+        "Changes ship only through pull requests and your CI.",
+    ),
+    (
+        "Which coding harnesses are supported?",
+        "Claude Code and pi today. Anything with a headless mode can be added as an adapter.",
+    ),
+    (
+        "Can a human review before merge?",
+        "Yes. Auto-merge is a policy setting. Turn it off and every PR waits for a human approval.",
+    ),
+    (
+        "What happens when a ticket is unclear?",
+        "The AI junior asks clarifying questions on the ticket and marks it blocked "
+        "until someone answers.",
+    ),
+]

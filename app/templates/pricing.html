@@ -15,5 +15,11 @@
     </article>
     {% endfor %}
   </div>
+  <section class="faq" id="faq">
+    <h2>Frequently asked questions</h2>
+    {% for q, a in faq %}
+    <details><summary>{{ q }}</summary><p>{{ a }}</p></details>
+    {% endfor %}
+  </section>
 </section>
 {% endblock %}

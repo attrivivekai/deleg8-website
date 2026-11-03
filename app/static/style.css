@@ -64,3 +64,8 @@ h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; letter-spacing: -0.0
 .pills li { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--muted); }
 
 .footer { border-top: 1px solid var(--line); color: var(--muted); padding: 24px 0; font-size: .9rem; }
+
+.faq { max-width: 720px; margin: 3rem auto 0; }
+.faq details { border-bottom: 1px solid rgba(128, 128, 128, 0.3); }
+.faq summary { padding: 1rem 0.5rem; cursor: pointer; font-weight: 600; overflow-wrap: anywhere; }
+.faq p { margin: 0 0 1rem; padding: 0 0.5rem; overflow-wrap: anywhere; }
