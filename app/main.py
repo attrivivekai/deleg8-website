@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, Form, HTTPException, Request
@@ -29,8 +30,11 @@ def render(request: Request, name: str, **ctx) -> HTMLResponse:
 
 
 # ---------------------------------------------------------------- validation
+EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s.]+(\.[^@\s.]+)+$")
+
+
 def is_valid_email(email: str) -> bool:
-    return "@" in email
+    return EMAIL_RE.fullmatch(email) is not None
 
 
 class SignupIn(BaseModel):
