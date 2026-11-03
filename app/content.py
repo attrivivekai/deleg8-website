@@ -1,8 +1,15 @@
 """Static marketing content. Edit here rather than in templates."""
 
+POPULAR_BADGE = "Most popular"
+
+# "Most popular" = plan with the most demo_requests in the last 90 days (wiki
+# product/pricing.md, data/warehouse.md); never all-time numbers.
+# Warehouse query run 2026-11-04: team 192, starter 95, enterprise 73.
+# Plans carry their badge text in "badge" so templates need no extra context.
 PLANS = [
     {
         "id": "starter",
+        "popular": False,
         "name": "Starter",
         "price": "$499",
         "period": "/ month",
@@ -17,6 +24,8 @@ PLANS = [
     },
     {
         "id": "team",
+        "popular": True,
+        "badge": POPULAR_BADGE,
         "name": "Team",
         "price": "$1,999",
         "period": "/ month",
@@ -31,6 +40,7 @@ PLANS = [
     },
     {
         "id": "enterprise",
+        "popular": False,
         "name": "Enterprise",
         "price": "Custom",
         "period": "",

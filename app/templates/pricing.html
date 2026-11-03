@@ -6,7 +6,8 @@
   <p class="lede">Cheaper than a hire, and it starts on day one.</p>
   <div class="plans">
     {% for p in plans %}
-    <article class="card plan" id="plan-{{ p.id }}">
+    <article class="card plan{% if p.popular %} plan--popular{% endif %}" id="plan-{{ p.id }}">
+      {% if p.popular %}<span class="badge">{{ p.badge }}</span>{% endif %}
       <h2>{{ p.name }}</h2>
       <p class="price">{{ p.price }}<span>{{ p.period }}</span></p>
       <p>{{ p.blurb }}</p>
