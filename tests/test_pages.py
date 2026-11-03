@@ -1,7 +1,7 @@
 import pytest
 
 
-@pytest.mark.parametrize("path", ["/", "/how-it-works", "/pricing", "/thanks"])
+@pytest.mark.parametrize("path", ["/", "/how-it-works", "/pricing", "/changelog", "/thanks"])
 def test_pages_render(client, path):
     res = client.get(path)
     assert res.status_code == 200
@@ -56,3 +56,19 @@ def test_exactly_one_popular_plan_and_it_is_team():
 
     popular = [p["id"] for p in PLANS if p["popular"]]
     assert popular == ["team"]
+
+
+def test_changelog_public_entries_newest_first(client):
+    html = client.get("/changelog").text
+    for title in (
+        "Jira adapter",
+        "AI code review",
+        "Warehouse research tools",
+        "pi harness support",
+        "Private beta",
+    ):
+        assert title in html
+    assert html.index("Jira adapter") < html.index("Private beta")
+    assert "28 Oct 2026" in html
+    assert "Seed round" not in html
+    assert "Company founded" not in html

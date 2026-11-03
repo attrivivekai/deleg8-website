@@ -6,7 +6,7 @@ browser ──► FastAPI (app/main.py) ──► SQLAlchemy ──► Postgres 
               └── Jinja2 templates + static CSS/JS
 ```
 
-* `GET /`, `/how-it-works`, `/pricing`, `/thanks`: marketing pages
+* `GET /`, `/how-it-works`, `/pricing`, `/changelog`, `/thanks`: marketing pages
 * `POST /waitlist` (form) and `POST /api/waitlist` (JSON): create a `waitlist_signups` row
 * `GET /api/waitlist/count`: total signups
 * `GET /api/health`: liveness check
