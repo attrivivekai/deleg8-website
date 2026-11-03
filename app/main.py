@@ -10,7 +10,7 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.config import get_settings
-from app.content import FAQ, PLANS, STEPS, TEAM_SIZES
+from app.content import CHANGELOG, CHANGELOG_LEDE, FAQ, PLANS, STEPS, TEAM_SIZES, format_date
 from app.db import WaitlistSignup, get_session
 
 BASE_DIR = Path(__file__).parent
@@ -75,6 +75,12 @@ def how_it_works(request: Request):
 @app.get("/pricing", response_class=HTMLResponse)
 def pricing(request: Request):
     return render(request, "pricing.html", faq=FAQ)
+
+
+@app.get("/changelog", response_class=HTMLResponse)
+def changelog(request: Request):
+    entries = [{**e, "display_date": format_date(e["date"])} for e in CHANGELOG]
+    return render(request, "changelog.html", changelog=entries, lede=CHANGELOG_LEDE)
 
 
 @app.post("/waitlist")

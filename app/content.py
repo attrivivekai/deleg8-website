@@ -71,6 +71,14 @@ STEPS = [
 
 TEAM_SIZES = ["1-10", "11-50", "51-200", "201-1000", "1000+"]
 
+from datetime import date as _date  # noqa: E402
+
+
+def format_date(iso: str) -> str:
+    d = _date.fromisoformat(iso)
+    return f"{d.day} {d:%b %Y}"
+
+
 # Synced by hand from wiki company/timeline.md.
 # Public milestones only, never add items marked (internal).
 CHANGELOG = [
@@ -102,6 +110,8 @@ CHANGELOG = [
         "summary": "First five design partners onboarded.",
     },
 ]
+
+CHANGELOG_LEDE = "What's new in deleg8."
 
 FAQ = [
     (

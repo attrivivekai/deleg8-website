@@ -71,3 +71,8 @@ h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; letter-spacing: -0.0
 .faq p { margin: 0 0 1rem; padding: 0 0.5rem; overflow-wrap: anywhere; }
 .plan--popular { border-color: var(--brand-2); box-shadow: 0 0 0 1px var(--brand-2); }
 .badge { display: inline-block; max-width: 100%; background: var(--brand-2); color: #06281f; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 4px 12px; border-radius: 999px; margin-bottom: 8px; }
+
+.changelog { display: grid; gap: 16px; margin-top: 32px; max-width: 70ch; }
+.changelog time { color: var(--muted); font-size: 0.9rem; }
+.changelog h2 { margin: 4px 0 8px; font-size: 1.25rem; }
+.changelog p { margin: 0; }
