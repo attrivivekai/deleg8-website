@@ -60,3 +60,35 @@ STEPS = [
 ]
 
 TEAM_SIZES = ["1-10", "11-50", "51-200", "201-1000", "1000+"]
+
+# Synced by hand from wiki company/timeline.md.
+# Public milestones only, never add items marked (internal).
+CHANGELOG = [
+    {
+        "date": "2026-10-28",
+        "title": "Jira adapter",
+        "summary": "deleg8 can now take work from Jira Cloud as well as GitHub Issues.",
+    },
+    {
+        "date": "2026-10-14",
+        "title": "AI code review",
+        "summary": "Every PR is reviewed by a separate reviewer model before CI and merge.",
+    },
+    {
+        "date": "2026-09-22",
+        "title": "Warehouse research tools",
+        "summary": (
+            "AI juniors can query your DuckDB/Postgres warehouse (read-only) while planning."
+        ),
+    },
+    {
+        "date": "2026-09-02",
+        "title": "pi harness support",
+        "summary": "Choose Claude Code or pi as the coding harness.",
+    },
+    {
+        "date": "2026-08-15",
+        "title": "Private beta",
+        "summary": "First five design partners onboarded.",
+    },
+]
